@@ -1,24 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--MapVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="BYZ-38-t0r" customClass="MapVC" customModule="PixelCityApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="Mapvc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGx-sf-6db">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="657"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="657" id="H3j-6y-3wB"/>
+                                </constraints>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dqc-0g-Oqz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Double tap to pin and view photo." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeO-9n-uCo">
+                                        <rect key="frame" x="46" y="24" width="282" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="282" id="TxF-lz-zpf"/>
+                                            <constraint firstAttribute="height" constant="22" id="ayh-7U-4m1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96470588235294119" green="0.66666666666666663" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="LeO-9n-uCo" firstAttribute="centerY" secondItem="Dqc-0g-Oqz" secondAttribute="centerY" id="CH3-E4-6IR"/>
+                                    <constraint firstAttribute="height" constant="70" id="Jkz-fY-2pu"/>
+                                    <constraint firstItem="LeO-9n-uCo" firstAttribute="centerX" secondItem="Dqc-0g-Oqz" secondAttribute="centerX" id="jM8-ua-0GS"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0H-gz-EjU">
+                                <rect key="frame" x="309" y="597" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="TWm-7a-mBA"/>
+                                    <constraint firstAttribute="width" constant="50" id="lT6-Gf-g4g"/>
+                                </constraints>
+                                <state key="normal" image="locationButton"/>
+                                <connections>
+                                    <action selector="centerMapBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EIC-kt-qd5"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Dqc-0g-Oqz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="2hs-vo-boH"/>
+                            <constraint firstItem="Dqc-0g-Oqz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Si2-hr-hhQ"/>
+                            <constraint firstItem="xGx-sf-6db" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="abM-Xi-R3q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="D0H-gz-EjU" secondAttribute="bottom" constant="20" id="cQL-Oe-Yya"/>
+                            <constraint firstItem="xGx-sf-6db" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="hOt-NB-qZa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="D0H-gz-EjU" secondAttribute="trailing" constant="16" id="ic1-GS-dY9"/>
+                            <constraint firstItem="Dqc-0g-Oqz" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="trv-fK-3tv"/>
+                            <constraint firstItem="xGx-sf-6db" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wD0-fN-1OC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="xGx-sf-6db" id="A6k-HJ-Wrk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="108.39580209895054"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="locationButton" width="67" height="67"/>
+    </resources>
 </document>
