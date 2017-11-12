@@ -11,6 +11,7 @@ import UIKit
 class PopVC: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var popImageView: UIImageView!
+    @IBOutlet weak var imageTitleLbl: UILabel!
     
     var passedImage: UIImage!
     
@@ -22,6 +23,10 @@ class PopVC: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         popImageView.image = passedImage
         addDoubleTap()
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
     func addDoubleTap(){
