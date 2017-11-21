@@ -194,7 +194,7 @@ extension MapVC: MKMapViewDelegate {
                 popImage.user = userId
                 self.imageUrlArray.append(popImage.imageURL!)
                 self.popImageArray.append(popImage)
-                print(response)
+//                print(response)
             }
             handler(true)
             
